@@ -7,6 +7,8 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem("adminToken");
 
+    config.headers = config.headers ?? {};
+
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
@@ -14,17 +16,15 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
-// 401 Hatası İçin Response Interceptor
 api.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response?.status === 401) {
-            // Token geçersiz veya süresi dolmuş
             localStorage.removeItem("adminToken");
             window.location.href = "/admin/login";
         }
         return Promise.reject(error);
-    }
+    },
 );
 
 export default api;

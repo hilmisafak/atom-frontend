@@ -57,6 +57,10 @@ function Photos() {
 
     if (!selectedImage) return;
 
+    if (previewImage) {
+      URL.revokeObjectURL(previewImage);
+    }
+
     setImage(selectedImage);
     setPreviewImage(URL.createObjectURL(selectedImage));
   };
@@ -156,6 +160,14 @@ function Photos() {
       toast.error("Silme işlemi başarısız.");
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (previewImage) {
+        URL.revokeObjectURL(previewImage);
+      }
+    };
+  }, [previewImage]);
 
   return (
     <AdminLayout>

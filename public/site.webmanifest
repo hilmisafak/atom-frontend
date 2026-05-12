@@ -1,0 +1,16 @@
+{
+  "name": "ATOM OTO Taşımacılık",
+  "short_name": "ATOM OTO",
+  "description": "Türkiye geneli araç taşıma ve oto kurtarma hizmeti.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050507",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

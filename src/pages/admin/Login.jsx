@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Lock, User, ShieldCheck } from "lucide-react";
+import toast from "react-hot-toast";
 
 import api from "../../api/axios";
 import "../../styles/admin-login.css";
 
 function Login() {
   const navigate = useNavigate();
+  const token = localStorage.getItem("adminToken");
+
+  useEffect(() => {
+    if (token) {
+      navigate("/admin", { replace: true });
+    }
+  }, [navigate, token]);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -33,12 +41,12 @@ function Login() {
       const response = await api.post("/auth/login", formData);
 
       localStorage.setItem("adminToken", response.data.token);
-
-      navigate("/admin");
+      toast.success("Başarıyla giriş yapıldı.");
+      navigate("/admin", { replace: true });
     } catch (err) {
-      setError(
-        err.response?.data?.message || "Giriş yapılırken bir hata oluştu.",
-      );
+      const message = err.response?.data?.message || "Giriş yapılırken bir hata oluştu.";
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }
