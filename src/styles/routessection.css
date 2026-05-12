@@ -1,0 +1,375 @@
+.routes-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 4% 34%, rgba(220, 38, 38, 0.24), transparent 32%),
+    radial-gradient(circle at 96% 70%, rgba(127, 29, 29, 0.3), transparent 34%),
+    linear-gradient(180deg, #02060d 0%, #03060b 100%);
+  padding: 120px 0;
+  color: #fff;
+}
+
+.routes-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 18%,
+    #000 82%,
+    transparent 100%
+  );
+  opacity: 0.42;
+}
+
+/* Global section-container küçük kalıyorsa bunu özellikle eziyoruz */
+.routes-section > .section-container.routes-layout {
+  width: min(1440px, calc(100% - 72px));
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.routes-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(420px, 0.75fr) minmax(760px, 1.25fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.routes-copy {
+  color: #fff;
+}
+
+.routes-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid rgba(239, 21, 21, 0.48);
+  border-radius: 999px;
+  background: rgba(239, 21, 21, 0.12);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 18px 42px rgba(220, 38, 38, 0.14);
+}
+
+.routes-badge svg {
+  color: #ff2525;
+}
+
+.routes-title {
+  margin: 22px 0 18px;
+  max-width: 520px;
+  color: #fff;
+  font-size: clamp(52px, 4.8vw, 76px);
+  line-height: 0.98;
+  font-weight: 950;
+  letter-spacing: -3px;
+}
+
+.routes-title span {
+  display: inline;
+  color: #ff2020;
+  text-shadow: 0 0 30px rgba(255, 32, 32, 0.22);
+}
+
+.routes-desc {
+  max-width: 520px;
+  margin: 0;
+  color: #c8d2df;
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.route-pill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.route-pill {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(239, 21, 21, 0.38);
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(239, 21, 21, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 42px rgba(0, 0, 0, 0.2);
+  transition: 0.25s ease;
+}
+
+.route-pill:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 60, 60, 0.7);
+}
+
+.route-pill svg {
+  flex: 0 0 auto;
+  color: #ff2828;
+}
+
+.route-pill strong {
+  display: block;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 950;
+}
+
+.route-pill span {
+  display: block;
+  margin-top: 5px;
+  color: #b4bdca;
+  font-size: 13px;
+}
+
+/* Sağ paneli büyüten ana kısım */
+.routes-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  min-height: 480px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 68% 54%,
+      rgba(239, 21, 21, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(145deg, rgba(8, 13, 24, 0.98), rgba(4, 7, 13, 0.98));
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.routes-info {
+  position: relative;
+  z-index: 5;
+  padding: 42px 0 42px 38px;
+}
+
+.routes-list-head {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.routes-head-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 15px;
+  background: #ef1515;
+  color: #fff;
+  box-shadow: 0 16px 34px rgba(239, 21, 21, 0.32);
+}
+
+.routes-list-head h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 23px;
+  line-height: 1.16;
+  font-weight: 950;
+  letter-spacing: -0.8px;
+}
+
+.routes-list-head p {
+  margin: 6px 0 0;
+  color: #9da7b5;
+  font-size: 13px;
+}
+
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.city-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 9px 13px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  transition: 0.2s ease;
+}
+
+.city-item:hover {
+  background: rgba(239, 21, 21, 0.12);
+}
+
+.city-item svg {
+  flex: 0 0 auto;
+  color: #ff2525;
+}
+
+.routes-note {
+  margin-top: 20px;
+  padding: 16px 17px;
+  border: 1px solid rgba(239, 21, 21, 0.44);
+  border-radius: 12px;
+  background: rgba(239, 21, 21, 0.09);
+  color: #f0f3f8;
+  font-size: 12.5px;
+  line-height: 1.75;
+}
+
+/* Harita alanını büyüttük */
+.map-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  padding: 28px 44px 28px 24px;
+}
+
+.map-area::before {
+  content: "";
+  position: absolute;
+  width: 72%;
+  height: 72%;
+  border-radius: 999px;
+  background: rgba(239, 21, 21, 0.14);
+  filter: blur(80px);
+  opacity: 0.8;
+}
+
+.turkey-map-img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  object-fit: contain;
+  opacity: 1;
+  filter: drop-shadow(0 0 30px rgba(239, 21, 21, 0.22));
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+  .routes-section > .section-container.routes-layout {
+    width: min(1180px, calc(100% - 48px));
+  }
+
+  .routes-layout {
+    grid-template-columns: minmax(360px, 0.8fr) minmax(620px, 1.2fr);
+    gap: 40px;
+  }
+
+  .routes-title {
+    font-size: clamp(46px, 4.8vw, 64px);
+  }
+
+  .routes-panel {
+    grid-template-columns: 330px minmax(0, 1fr);
+  }
+
+  .turkey-map-img {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .routes-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .routes-copy {
+    max-width: 760px;
+  }
+
+  .routes-title,
+  .routes-desc {
+    max-width: 760px;
+  }
+
+  .routes-panel {
+    grid-template-columns: 360px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .routes-section {
+    padding: 72px 0;
+  }
+
+  .routes-section > .section-container.routes-layout {
+    width: min(100% - 28px, 760px);
+  }
+
+  .routes-panel {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .routes-info {
+    width: 100%;
+    padding: 30px;
+  }
+
+  .map-area {
+    min-height: 320px;
+    padding: 10px 30px 40px;
+  }
+
+  .turkey-map-img {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 620px) {
+  .routes-title {
+    font-size: 38px;
+    letter-spacing: -1.8px;
+  }
+
+  .routes-desc {
+    font-size: 15px;
+  }
+
+  .route-pill-grid,
+  .city-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .routes-panel {
+    border-radius: 20px;
+  }
+
+  .map-area {
+    min-height: 260px;
+  }
+}
