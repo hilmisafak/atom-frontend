@@ -19,7 +19,7 @@ function Header() {
     { label: "Ana Sayfa", to: "/" },
     { label: "Hizmetler", href: "/#hizmetler" },
     { label: "Bölgeler", href: "/#bolgeler" },
-    { label: "Galeri", to: "/galeri" },
+    { label: "Galeri", href: "/galeri" },
     { label: "İletişim", href: "/#iletisim" },
   ];
 
